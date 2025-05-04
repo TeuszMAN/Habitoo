@@ -12,7 +12,7 @@ import 'package:habitoo/views/widget/navbar_widget.dart';
 
 List<Widget> pages = [
   GraphScreen(),
-  QuestionScreen(),
+  QuestionsScreen(),
   HomeScreen(),
   ProfileScreen(),
 ];
