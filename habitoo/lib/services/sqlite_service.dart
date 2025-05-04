@@ -43,7 +43,7 @@ class SQLiteService implements StorageService {
         escoreTotal INTEGER NOT NULL,
         classificacao TEXT NOT NULL,
         escoresPorDominio TEXT NOT NULL,
-        userId TEXT // Adicionado para relacionamento com usuários
+        userId TEXT
       )
     ''');
 
