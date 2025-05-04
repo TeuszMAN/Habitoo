@@ -5,6 +5,7 @@ class RespostaQ8RN {
   final int escoreTotal;
   final String classificacao;
   final Map<String, int> escoresPorDominio;
+  final String? userId; // Novo campo para armazenar o ID do usuário
 
   RespostaQ8RN({
     String? id,
@@ -13,6 +14,7 @@ class RespostaQ8RN {
     required this.escoreTotal,
     required this.classificacao,
     required this.escoresPorDominio,
+    this.userId,
   }) : this.id = id ?? DateTime.now().millisecondsSinceEpoch.toString();
 
   Map<String, dynamic> toMap() {
@@ -23,6 +25,7 @@ class RespostaQ8RN {
       'escoreTotal': escoreTotal,
       'classificacao': classificacao,
       'escoresPorDominio': escoresPorDominio,
+      'userId': userId,
     };
   }
 
@@ -34,6 +37,7 @@ class RespostaQ8RN {
       escoreTotal: map['escoreTotal'],
       classificacao: map['classificacao'],
       escoresPorDominio: Map<String, int>.from(map['escoresPorDominio']),
+      userId: map['userId'],
     );
   }
 }
