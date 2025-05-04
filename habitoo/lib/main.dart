@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:habitoo/views/pages/home_page.dart';
 import 'package:habitoo/views/widget_tree.dart';
 import 'package:habitoo/views/pages/splash_screen.dart';
 

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:habitoo/data/notifiers.dart';
-import 'package:habitoo/views/pages/graphs_page.dart';
-import 'package:habitoo/views/pages/home_page.dart';
-import 'package:habitoo/views/pages/profile_page.dart';
+
+import 'package:habitoo/views/pages/graph_screen.dart';
+
+import 'package:habitoo/views/pages/home_screen.dart';
+
 import 'package:habitoo/views/pages/profile_screen.dart';
-import 'package:habitoo/views/pages/questions_page.dart';
-import 'package:habitoo/views/widgets/navBar_widget.dart';
+
+import 'package:habitoo/views/pages/questions_screen.dart';
+import 'package:habitoo/data/notifiers.dart';
+import 'package:habitoo/views/widget/navbar_widget.dart';
 
 List<Widget> pages = [
-  GraphsPage(),
-  QuestionarioScreen(),
-  HomePage(),
-  ProfilePage(),
+  GraphScreen(),
+  QuestionScreen(),
+  HomeScreen(),
+  ProfileScreen(),
 ];
 
 class WidgetTree extends StatelessWidget {
