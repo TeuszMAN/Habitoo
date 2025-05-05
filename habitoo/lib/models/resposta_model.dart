@@ -30,13 +30,27 @@ class RespostaQ8RN {
   }
 
   factory RespostaQ8RN.fromMap(Map<String, dynamic> map) {
+    final rawRespostas = map['resposta'];
+    final rawEscores = map['escoresPorDominio'];
+
+    final Map<String, dynamic> respostasConvertidas =
+        rawRespostas is Map ? Map<String, dynamic>.from(rawRespostas) : {};
+
+    final Map<String, int> escoresConvertidos =
+        rawEscores is Map
+            ? rawEscores.map(
+              (key, value) =>
+                  MapEntry(key.toString(), int.tryParse(value.toString()) ?? 0),
+            )
+            : {};
+
     return RespostaQ8RN(
       id: map['id'],
       dataResposta: DateTime.parse(map['dataResposta']),
-      resposta: Map<String, dynamic>.from(map['resposta']),
+      resposta: respostasConvertidas,
       escoreTotal: map['escoreTotal'],
       classificacao: map['classificacao'],
-      escoresPorDominio: Map<String, int>.from(map['escoresPorDominio']),
+      escoresPorDominio: escoresConvertidos,
       userId: map['userId'],
     );
   }
