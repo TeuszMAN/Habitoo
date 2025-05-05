@@ -37,38 +37,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
         foregroundColor: null,
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildCampoTexto("Nome", _nomeController),
-                _buildCampoDataNascimento(),
-                _buildDropdownGenero(),
-                _buildSlider(
-                  "Altura (cm)",
-                  _altura,
-                  100,
-                  220,
-                  (val) => setState(() => _altura = val),
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/images/splash.png',
+            opacity: AlwaysStoppedAnimation(0.8),
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _buildCampoTexto("Nome", _nomeController),
+                    _buildCampoDataNascimento(),
+                    _buildDropdownGenero(),
+                    _buildSlider(
+                      "Altura (cm)",
+                      _altura,
+                      100,
+                      220,
+                      (val) => setState(() => _altura = val),
+                    ),
+                    _buildSlider(
+                      "Peso (kg)",
+                      _peso,
+                      30,
+                      150,
+                      (val) => setState(() => _peso = val),
+                    ),
+                    const SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text("ATUALIZAR"),
+                    ),
+                  ],
                 ),
-                _buildSlider(
-                  "Peso (kg)",
-                  _peso,
-                  30,
-                  150,
-                  (val) => setState(() => _peso = val),
-                ),
-                const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("ATUALIZAR"),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

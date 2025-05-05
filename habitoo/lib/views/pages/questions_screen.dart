@@ -221,23 +221,39 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           IconButton(icon: Icon(Icons.save), onPressed: _submeterQuestionario),
         ],
       ),
-      body: Form(
-        key: _formKey,
-        child: ListView.builder(
-          itemCount: questoesPorDominio.length,
-          itemBuilder: (context, index) {
-            final dominio = questoesPorDominio.keys.elementAt(index);
-            return Column(
-              children: [
-                Text(
-                  dominio,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                ...questoesPorDominio[dominio]!.map((q) => _buildQuestao(q)),
-              ],
-            );
-          },
-        ),
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/images/splash.png',
+            opacity: AlwaysStoppedAnimation(0.8),
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Form(
+            key: _formKey,
+            child: ListView.builder(
+              itemCount: questoesPorDominio.length,
+              itemBuilder: (context, index) {
+                final dominio = questoesPorDominio.keys.elementAt(index);
+                return Column(
+                  children: [
+                    Text(
+                      dominio,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    ...questoesPorDominio[dominio]!.map(
+                      (q) => _buildQuestao(q),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
