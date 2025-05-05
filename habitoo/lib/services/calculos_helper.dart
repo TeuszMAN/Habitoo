@@ -14,18 +14,13 @@ class CalculosQ8RN {
     };
   }
 
-  // ========== IMPLEMENTAÇÃO POR DOMÍNIO ========== //
-
-  // Domínio 1: Nutrição (Q1-Q3) - Máximo 12 pontos
   static int _calcularNutricao(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
-    // Q1 (Likert padrão)
     if (respostas['nutricao_q1'] != null) {
       pontuacao += _converterLikert(respostas['nutricao_q1']);
     }
 
-    // Q2 (Escala customizada)
     if (respostas['nutricao_q2'] != null) {
       pontuacao +=
           {
@@ -38,15 +33,13 @@ class CalculosQ8RN {
           0;
     }
 
-    // Q3 (Escala invertida: quanto menos itens, mais pontos)
     if (respostas['nutricao_q3'] != null) {
       pontuacao += 4 - _converterLikert(respostas['nutricao_q3']);
     }
 
-    return pontuacao.clamp(0, 12); // Garante que não ultrapasse o máximo
+    return pontuacao.clamp(0, 12);
   }
 
-  // Domínio 2: Exercício (Q4-Q6) - Máximo 12 pontos
   static int _calcularExercicio(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
@@ -63,11 +56,9 @@ class CalculosQ8RN {
     return pontuacao.clamp(0, 12);
   }
 
-  // Domínio 3: Água (Q7-Q8) - Máximo 8 pontos
   static int _calcularAgua(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
-    // Q7 (Quantidade de copos)
     if (respostas['agua_q7'] != null) {
       pontuacao +=
           {
@@ -80,7 +71,6 @@ class CalculosQ8RN {
           0;
     }
 
-    // Q8 (Likert padrão)
     if (respostas['agua_q8'] != null) {
       pontuacao += _converterLikert(respostas['agua_q8']);
     }
@@ -88,7 +78,6 @@ class CalculosQ8RN {
     return pontuacao.clamp(0, 8);
   }
 
-  // Domínio 4: Sol (Q9-Q10) - Máximo 8 pontos
   static int _calcularSol(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
@@ -102,11 +91,9 @@ class CalculosQ8RN {
     return pontuacao.clamp(0, 8);
   }
 
-  // Domínio 5: Temperança (Q11-Q14) - Máximo 16 pontos
   static int _calcularTemperanca(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
-    // Q11-Q14 (Dicotômicas: 4pts para "Não", 0 para "Sim")
     [
       'temperanca_q11',
       'temperanca_q12',
@@ -121,16 +108,13 @@ class CalculosQ8RN {
     return pontuacao.clamp(0, 16);
   }
 
-  // Domínio 6: Ar Puro (Q15-Q16) - Máximo 8 pontos
   static int _calcularArPuro(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
-    // Q15 (Likert invertido)
     if (respostas['ar_puro_q15'] != null) {
       pontuacao += 4 - _converterLikert(respostas['ar_puro_q15']);
     }
 
-    // Q16 (Likert padrão)
     if (respostas['ar_puro_q16'] != null) {
       pontuacao += _converterLikert(respostas['ar_puro_q16']);
     }
@@ -138,7 +122,6 @@ class CalculosQ8RN {
     return pontuacao.clamp(0, 8);
   }
 
-  // Domínio 7: Descanso (Q17-Q20) - Máximo 16 pontos
   static int _calcularDescanso(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
@@ -158,7 +141,6 @@ class CalculosQ8RN {
     return pontuacao.clamp(0, 16);
   }
 
-  // Domínio 8: Confiança (Q21-Q22) - Máximo 8 pontos
   static int _calcularConfianca(Map<String, dynamic> respostas) {
     int pontuacao = 0;
 
@@ -171,8 +153,6 @@ class CalculosQ8RN {
 
     return pontuacao.clamp(0, 8);
   }
-
-  // ========== UTILITÁRIOS ========== //
 
   static int _converterLikert(String resposta) {
     const mapa = {

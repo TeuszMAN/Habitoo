@@ -5,7 +5,7 @@ class RespostaQ8RN {
   final int escoreTotal;
   final String classificacao;
   final Map<String, int> escoresPorDominio;
-  final String? userId; // Novo campo para armazenar o ID do usuário
+  final String? userId;
 
   RespostaQ8RN({
     String? id,

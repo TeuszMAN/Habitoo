@@ -35,7 +35,6 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Cabeçalho com resultado principal
             _buildResultCard(
               title: 'Resultado Geral',
               children: [
@@ -65,7 +64,6 @@ class ResultScreen extends StatelessWidget {
 
             SizedBox(height: 20),
 
-            // Detalhes por domínio
             Text(
               'Detalhes por Domínio:',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -163,7 +161,6 @@ class ResultScreen extends StatelessWidget {
   }
 
   int _getMaxScoreForDomain(String domain) {
-    // Defina os valores máximos para cada domínio
     final maxScores = {
       'Nutrição': 12,
       'Exercício': 12,

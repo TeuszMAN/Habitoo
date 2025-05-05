@@ -23,9 +23,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   void initState() {
     super.initState();
-    // Removed assignment as it is now initialized directly
+
     _controller = Q8RNFormController(SQLiteService());
-    _carregarDadosSalvos(); // Opcional: carrega respostas salvas
+    _carregarDadosSalvos();
   }
 
   Future<void> _carregarDadosSalvos() async {
@@ -60,7 +60,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           duration: Duration(seconds: 2),
         ),
       );
-      setState(() {}); // Atualiza para destacar questões faltantes
+      setState(() {});
     }
 
     return valido;

@@ -2,9 +2,9 @@ class User {
   final String id;
   final String name;
   final String email;
-  final DateTime? birthDate; // Permite cálculo de idade
-  final double? weight; // Peso em kg
-  final double? height; // Altura em metros
+  final DateTime? birthDate;
+  final double? weight;
+  final double? height;
   final DateTime createdAt;
   final bool hasCompletedRegistration;
 
@@ -65,7 +65,6 @@ class User {
     );
   }
 
-  // Cópia com alterações (útil para atualizações)
   User copyWith({
     String? name,
     String? email,

@@ -1,13 +1,13 @@
 class Questao {
   final String chave;
-  final String dominio; // Novo campo adicionado
+  final String dominio;
   final String titulo;
   final List<String> opcoes;
   final bool isDicotomica;
 
   Questao({
     required this.chave,
-    required this.dominio, // Adicionado como parâmetro obrigatório
+    required this.dominio,
     required this.titulo,
     this.opcoes = const [],
     this.isDicotomica = false,
@@ -15,7 +15,6 @@ class Questao {
 }
 
 final List<Questao> listQuestoes = [
-  // ========== DOMÍNIO 1: NUTRIÇÃO ==========
   Questao(
     chave: 'nutricao_q1',
     dominio: 'Nutrição',
@@ -56,7 +55,6 @@ final List<Questao> listQuestoes = [
     ],
   ),
 
-  // ========== DOMÍNIO 2: EXERCÍCIO ==========
   Questao(
     chave: 'exercicio_q4',
     dominio: 'Exercício',
@@ -91,7 +89,6 @@ final List<Questao> listQuestoes = [
     ],
   ),
 
-  // ========== DOMÍNIO 3: ÁGUA ==========
   Questao(
     chave: 'agua_q7',
     dominio: 'Água',
@@ -106,7 +103,6 @@ final List<Questao> listQuestoes = [
     opcoes: ["Nunca", "Raramente", "Algumas vezes", "Muitas vezes", "Sempre"],
   ),
 
-  // ========== DOMÍNIO 4: SOL ==========
   Questao(
     chave: 'sol_q9',
     dominio: 'Sol',
@@ -122,7 +118,6 @@ final List<Questao> listQuestoes = [
     opcoes: ["Nunca", "Quase nunca", "Algumas vezes", "Muitas vezes", "Sempre"],
   ),
 
-  // ========== DOMÍNIO 5: TEMPERANÇA ==========
   Questao(
     chave: 'temperanca_q11',
     dominio: 'Temperança',
@@ -152,7 +147,6 @@ final List<Questao> listQuestoes = [
     isDicotomica: true,
   ),
 
-  // ========== DOMÍNIO 6: AR PURO ==========
   Questao(
     chave: 'ar_puro_q15',
     dominio: 'Ar Puro',
@@ -168,7 +162,6 @@ final List<Questao> listQuestoes = [
     opcoes: ["Nunca", "Raramente", "Algumas vezes", "Muitas vezes", "Sempre"],
   ),
 
-  // ========== DOMÍNIO 7: DESCANSO ==========
   Questao(
     chave: 'descanso_q17',
     dominio: 'Descanso',
@@ -184,7 +177,6 @@ final List<Questao> listQuestoes = [
     opcoes: ["Nunca", "Quase nunca", "Algumas vezes", "Muitas vezes", "Sempre"],
   ),
 
-  // ========== DOMÍNIO 8: CONFIANÇA ==========
   Questao(
     chave: 'confianca_q19',
     dominio: 'Confiança',

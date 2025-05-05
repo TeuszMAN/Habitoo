@@ -7,12 +7,10 @@ import 'package:sqflite/sqflite.dart';
 import 'storage_service.dart';
 
 class SQLiteService implements StorageService {
-  // Constantes para evitar "magic strings"
   static const _databaseName = 'q8rn.db';
   static const _databaseVersion = 1;
   static const _tableName = 'respostas';
 
-  // Singleton pattern
   static final SQLiteService _instance = SQLiteService._internal();
   factory SQLiteService() => _instance;
   SQLiteService._internal();
@@ -30,7 +28,7 @@ class SQLiteService implements StorageService {
       path,
       version: _databaseVersion,
       onCreate: _onCreate,
-      onUpgrade: _onUpgrade, // Adicionado para futuras atualizações
+      onUpgrade: _onUpgrade,
     );
   }
 
@@ -47,13 +45,11 @@ class SQLiteService implements StorageService {
       )
     ''');
 
-    // Índice para melhor performance em buscas por usuário
     await db.execute('''
       CREATE INDEX idx_user_id ON $_tableName (userId)
     ''');
   }
 
-  // Para futuras migrações de schema
   Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
     if (oldVersion < 2) {
       await db.execute('ALTER TABLE $_tableName ADD COLUMN userId TEXT');
@@ -73,7 +69,6 @@ class SQLiteService implements StorageService {
     });
   }
 
-  // Método auxiliar para conversão
   Map<String, dynamic> _toMap(RespostaQ8RN resposta) {
     return {
       'id': resposta.id,
@@ -103,7 +98,7 @@ class SQLiteService implements StorageService {
     return maps.map(_fromMap).toList();
   }
 
-  // Método auxiliar para conversão
+  
   RespostaQ8RN _fromMap(Map<String, dynamic> map) {
     return RespostaQ8RN.fromMap({
       'id': map['id'],
@@ -112,7 +107,7 @@ class SQLiteService implements StorageService {
       'escoreTotal': map['escoreTotal'],
       'classificacao': map['classificacao'],
       'escoresPorDominio': json.decode(map['escoresPorDominio']),
-      'userId': map['userId'], // Novo campo
+      'userId': map['userId'], 
     });
   }
 

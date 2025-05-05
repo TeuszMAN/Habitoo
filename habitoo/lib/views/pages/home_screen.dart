@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 class HomeScreen extends StatelessWidget {
   final Uri _url = Uri.parse(
     'https://www.adventistas.org/pt/saude/8-remedios-naturais/',
-  ); // Substitua com seu link
+  );
 
   void _launchURL() async {
     if (!await launchUrl(_url, mode: LaunchMode.externalApplication)) {
