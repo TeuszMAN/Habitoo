@@ -62,13 +62,13 @@ class _GraphScreenState extends State<GraphScreen> {
 
   int _getDaysFromFilter(String filter) {
     switch (filter) {
-      case '1m':
+      case '1d':
         return 30;
-      case '3m':
+      case '7d':
         return 90;
-      case '6m':
+      case '1m':
         return 180;
-      case '1y':
+      case '3m':
         return 365;
       default:
         return 0;
@@ -344,14 +344,14 @@ class _GraphScreenState extends State<GraphScreen> {
 
   String _getTimeRangeLabel(String value) {
     switch (value) {
+      case '1d':
+        return 'Últimas 24h ';
+      case '7d':
+        return 'Última semana';
       case '1m':
         return 'Último mês';
       case '3m':
         return 'Últimos 3 meses';
-      case '6m':
-        return 'Últimos 6 meses';
-      case '1y':
-        return 'Último ano';
       default:
         return 'Todos os dados';
     }
