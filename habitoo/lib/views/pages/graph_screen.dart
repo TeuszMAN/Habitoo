@@ -63,13 +63,13 @@ class _GraphScreenState extends State<GraphScreen> {
   int _getDaysFromFilter(String filter) {
     switch (filter) {
       case '1d':
-        return 30;
+        return 1;
       case '7d':
-        return 90;
+        return 7;
       case '1m':
-        return 180;
+        return 30;
       case '3m':
-        return 365;
+        return 90;
       default:
         return 0;
     }
