@@ -140,6 +140,16 @@ class SQLiteService implements StorageService {
     );
   }
 
+  Future<void> debugPrintAllResponses() async {
+    final db = await database;
+    final maps = await db.query('respostas');
+    debugPrint('=== REGISTROS NO BANCO DE DADOS ===');
+    for (var map in maps) {
+      debugPrint(map.toString());
+    }
+    debugPrint('=== TOTAL DE REGISTROS: ${maps.length} ===');
+  }
+
   // Novo: Remove resposta
   Future<int> deletarResposta(String id) async {
     final db = await database;
@@ -186,5 +196,11 @@ class SQLiteService implements StorageService {
       await _database!.close();
       _database = null;
     }
+  }
+
+  Future<void> exportToFile(String path) async {
+    final db = await database;
+    final dbFile = File(db.path);
+    await dbFile.copy(path);
   }
 }
